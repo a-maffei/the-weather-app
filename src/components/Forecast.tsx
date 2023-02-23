@@ -1,24 +1,26 @@
-import { forecastType } from '../types'
-import Sunrise from './Icons/Sunrise'
-import Sunset from './Icons/Sunset'
-import Tile from './Tile'
-import { getSunTime } from '../helpers'
-import { getWindDirection } from '../helpers'
-import { getHumidityValue } from '../helpers'
-import { getPop } from '../helpers'
-import { getVisibilityValue } from '../helpers'
-import useForecast from '../hooks/useForecast'
-import React from 'react'
+import { forecastType } from "../types";
+import Sunrise from "./Icons/Sunrise";
+import Sunset from "./Icons/Sunset";
+import Tile from "./Tile";
+import { getSunTime } from "../helpers";
+import { getWindDirection } from "../helpers";
+import { getHumidityValue } from "../helpers";
+import { getPop } from "../helpers";
+import { getVisibilityValue } from "../helpers";
+import useForecast from "../hooks/useForecast";
+import React from "react";
 
 type Props = {
-  data: forecastType
-  resetForecast: (e: React.MouseEvent<HTMLButtonElement>) => void
-}
+  data: forecastType;
+  resetForecast: (e: React.MouseEvent<HTMLButtonElement>) => void;
+};
 
-const Degree = ({ temp }: { temp: number }): JSX.Element => <span>{temp}°</span>
+const Degree = ({ temp }: { temp: number }): JSX.Element => (
+  <span>{temp}°</span>
+);
 
 const Forecast = ({ data, resetForecast }: Props) => {
-  const today = data.list[0]
+  const today = data.list[0];
 
   return (
     <div className="w-full h-full md:max-w-[600px] py-4 md:py-4 md:px-10 lg:px-24 bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg">
@@ -34,7 +36,7 @@ const Forecast = ({ data, resetForecast }: Props) => {
             {today.weather[0].main} ({today.weather[0].description})
           </p>
           <p className="text-sm">
-            Highest: <Degree temp={Math.ceil(today.main.temp_max)} /> Lowest:{' '}
+            Highest: <Degree temp={Math.ceil(today.main.temp_max)} /> Lowest:{" "}
             <Degree temp={Math.floor(today.main.temp_min)} />
           </p>
         </section>
@@ -46,11 +48,11 @@ const Forecast = ({ data, resetForecast }: Props) => {
               className="inline-block text-center w-[50px] flex-shrink-0"
             >
               <p className="text-sm">
-                {i === 0 ? 'Now' : new Date(item.dt * 1000).getHours()}
+                {i === 0 ? "Now" : new Date(item.dt * 1000).getHours()}
               </p>
               <img
                 alt={`weather-icon-${item.weather[0].description}`}
-                src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
               />
               <p className="text-sm font-bold">
                 <Degree temp={Math.round(item.main.temp)} />
@@ -82,8 +84,8 @@ const Forecast = ({ data, resetForecast }: Props) => {
             info={<Degree temp={Math.round(today.main.feels_like)} />}
             description={`Feels ${
               Math.round(today.main.feels_like) < Math.round(today.main.temp)
-                ? 'colder'
-                : 'warmer'
+                ? "colder"
+                : "warmer"
             }`}
           />
           <Tile
@@ -103,7 +105,7 @@ const Forecast = ({ data, resetForecast }: Props) => {
             title="Pressure"
             info={`${today.main.pressure} hPa`}
             description={` ${
-              Math.round(today.main.pressure) < 1013 ? 'Lower' : 'Higher'
+              Math.round(today.main.pressure) < 1013 ? "Lower" : "Higher"
             } than standard`}
           />
           <Tile
@@ -121,7 +123,7 @@ const Forecast = ({ data, resetForecast }: Props) => {
         New Search
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default Forecast
+export default Forecast;
