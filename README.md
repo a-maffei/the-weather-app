@@ -13,7 +13,7 @@ I consolidated my skills while:
 - Building a live search bar connected to a dedicated API call
 - Creating custom React hooks
 
-➡ Check out [Space Memory Game](https://space-memory-game.netlify.app/)
+➡ [Check it out](https://yes-another-weather-app.netlify.app/)
 
 ## Tech Stack
 
@@ -29,9 +29,7 @@ I consolidated my skills while:
 
 **Deployed with:** Netlify
 
-## Preview
-
-Insert gif or link to demo
+## Overview
 
 **The user can:**
 
