@@ -1,6 +1,6 @@
 # The Weather App
 
-Did the world need another weather app project? Most likely not. That said, this project was a great opportunity for me to both expand and consolidate my web development skills.
+An app to check the forecast and the weather for a specific location at a glance. This project was a great opportunity for me to both expand and consolidate my web development skills.
 
 I expanded my skills while:
 
